@@ -1,26 +1,21 @@
 $(document).ready(function() {
 
-$("form").on('click', 'button', function(event) {
+	$("form").submit(function(event) {
+		var html = ('<li>' + '<span class="shopping-item">' + $('#shopping-list-entry').val() + '</span>' + '<div class="shopping-item-controls">' + '<button class="shopping-item-toggle">' + '<span class="button-label">' + 'check' + '</span>' + '</button>' + '<button class="shopping-item-delete">' + '<span class="button-label">' + 'delete' + '</span>' + '</button>' + '</div>' + '</li>');
+		if ($("#shopping-list-entry").val() === '') {
+			$('input').css('background-color', 'aliceblue');
+			return false;};
+	   $('ul').append(html);
+	   $('#shopping-list-entry').val('').css('background-color', 'white');
+	 	event.preventDefault();
 
-   $("ul").append(
-      "<li>" + [$("#shopping-list-entry").text()] + "</li>"
-    );
- 	event.preventDefault();
-  });
+	  });
 
-
-  
-
- $('ul').on('click', 'button.shopping-item-delete', function(event) {
- $(event.target).closest("li").remove();
- });
-
-
- $('div.shopping-item-controls').on('click', 'button.shopping-item-toggle', function() {
- 	$('span.shopping-item').toggleClass("shopping-item__checked")
- }
-
- 	);
+	 $('ul').on('click','.shopping-item-delete', function(event) 
+	 	{$(this).closest("li").remove();})
+		
+		.on('click','button.shopping-item-toggle', function() 
+	 	{$(this).parent().siblings('.shopping-item').toggleClass('shopping-item__checked')});
 
 
 
