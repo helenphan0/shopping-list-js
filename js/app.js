@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	$("form").submit(function(event) {
-		var html = ('<li>' + '<span class="shopping-item">' + $('#shopping-list-entry').val() + '</span>' + '<div class="shopping-item-controls">' + '<button class="shopping-item-toggle">' + '<span class="button-label">' + 'check' + '</span>' + '</button>' + '<button class="shopping-item-delete">' + '<span class="button-label">' + 'delete' + '</span>' + '</button>' + '</div>' + '</li>');
+		var html = ('<li>' + '<span class="shopping-item">' + $('#shopping-list-entry').val() + '</span>' + '<div class="shopping-item-controls">' + '<button class="shopping-item-toggle">' + '<i class="fa fa-check-square-o" aria-hidden="true">' + '</i>' + '</button>' + '<button class="shopping-item-delete">' + '<i class="fa fa-minus-square-o" aria-hidden="true">' + '</i>' + '</button>' + '</div>' + '</li>');
 		if ($("#shopping-list-entry").val() === '') {
 			$('input').css('background-color', 'aliceblue');
 			return false;};
